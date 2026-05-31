@@ -25,7 +25,7 @@ A polished, single-page Lead Management CRM built for the Frontend Engineering I
 
 ## 📹 Demo Recording
 
-[Link to Loom/Video Recording](https://loom.com/your-recording-id)
+[Link to Loom/Video Recording](https://www.loom.com/share/2ca5956f8ebb45838b35d9ace6e570c2)
 *A 1-3 minute walkthrough of the application's major flows and UI interactions.*
 
 ## 🛠 Tech Stack
