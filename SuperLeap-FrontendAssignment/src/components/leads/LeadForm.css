@@ -1,0 +1,89 @@
+.lead-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.lead-form__server-error {
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-danger-subtle);
+  border: 1px solid var(--color-danger);
+  border-radius: var(--radius-md);
+  color: var(--color-danger);
+  font-size: var(--text-sm);
+}
+
+.lead-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.lead-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.lead-form__label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-secondary);
+}
+
+.lead-form__label span {
+  color: var(--color-danger);
+  margin-left: 2px;
+}
+
+.lead-form__input {
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-size: var(--text-sm);
+  transition: border-color var(--transition-fast);
+  width: 100%;
+}
+
+.lead-form__input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.lead-form__input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.lead-form__input--error {
+  border-color: var(--color-danger);
+}
+
+.lead-form__input--error:focus {
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 2px var(--color-danger-subtle);
+}
+
+.lead-form__select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238b92b0' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-3) center;
+  padding-right: var(--space-8);
+  cursor: pointer;
+}
+
+.lead-form__error {
+  font-size: var(--text-xs);
+  color: var(--color-danger);
+}
+
+.lead-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-border-subtle);
+  margin-top: var(--space-2);
+}
