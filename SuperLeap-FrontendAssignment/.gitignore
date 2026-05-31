@@ -23,10 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-
-package-lock.json
-package.json
-tsconfig.json
-tsconfig.node.json
-tsconfig.app.json
-vite.config.ts
+# Environment
+.env
+.env.*

@@ -2,7 +2,15 @@
   position: relative;
   display: flex;
   align-items: center;
-  min-width: 260px;
+  min-width: unset;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .search-box {
+    min-width: 260px;
+    width: auto;
+  }
 }
 
 .search-box__icon {

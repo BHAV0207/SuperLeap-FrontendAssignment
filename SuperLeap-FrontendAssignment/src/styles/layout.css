@@ -16,9 +16,15 @@
 .app-header-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--space-4) var(--space-6);
+  padding: var(--space-4) var(--space-4);
   display: flex;
   align-items: center;
+}
+
+@media (min-width: 640px) {
+  .app-header-inner {
+    padding: var(--space-4) var(--space-6);
+  }
 }
 
 .app-logo {
@@ -32,10 +38,16 @@
 }
 
 .app-logo-text {
-  font-size: var(--text-lg);
+  font-size: var(--text-base);
   font-weight: var(--font-semibold);
   color: var(--color-text-primary);
   letter-spacing: -0.02em;
+}
+
+@media (min-width: 480px) {
+  .app-logo-text {
+    font-size: var(--text-lg);
+  }
 }
 
 .app-main {
@@ -43,5 +55,12 @@
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: var(--space-8) var(--space-6);
+  padding: var(--space-6) var(--space-4);
+  overflow-x: hidden;
+}
+
+@media (min-width: 640px) {
+  .app-main {
+    padding: var(--space-8) var(--space-6);
+  }
 }
