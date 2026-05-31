@@ -28,3 +28,9 @@ dist-ssr
 .env.*
 
 package-lock.json
+package-lock.json.*
+package.json
+tsconfig.json
+tsconfig.*.json
+vite.config.ts
+vite.config.*.ts
