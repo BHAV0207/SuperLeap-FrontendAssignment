@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Pencil, Trash2 } from 'lucide-react';
 import type { Lead, LeadStatus } from '../../types/lead';
-import StatusBadge from './StatusBadge';
 import StatusChanger from './StatusChanger';
 import { EmptyState } from '../ui/States';
 import './LeadsTable.css';

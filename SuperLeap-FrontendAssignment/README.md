@@ -1,73 +1,63 @@
-# React + TypeScript + Vite
+# SuperLeap Mini Lead CRM
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A polished, single-page Lead Management CRM built for the Frontend Engineering Intern assessment.
 
-Currently, two official plugins are available:
+## 🚀 Quick Start
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-## React Compiler
+2. **Run the mock API (json-server):**
+   ```bash
+   npm run mock
+   ```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+   Visit `http://localhost:5173`.
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Layer | Choice | Rationale |
+|---|---|---|
+| **Framework** | React 19 + TypeScript | Strongly preferred by spec; ensures type safety and performance. |
+| **State Management** | TanStack Query v5 | Handles server state with ease (loading/error/optimistic updates) while leaving UI state to simple React hooks. |
+| **Routing** | React Router v7 | Enables deep-linkable URLs so refreshing on `/leads/:id/edit` works perfectly. |
+| **Styling** | Vanilla CSS | Full control over the design system using CSS Custom Properties (Variables) without extra build-time dependencies. |
+| **Icons** | Lucide React | Lightweight, tree-shakable icon library. |
+| **Mock API** | json-server | Provides a full RESTful contract (`GET/POST/PUT/PATCH/DELETE`) matching the assessment requirements. |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📐 Design Decisions
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Component Architecture
+The project follows a component-based architecture organized by domain:
+- `src/components/leads/`: Domain-specific components like `LeadsTable`, `StatusChanger`, and `LeadForm`.
+- `src/components/ui/`: Reusable primitives such as `Modal`, `Toast`, and state indicators (`LoadingSpinner`, `EmptyState`).
+- `src/hooks/`: Custom hooks encapsulate data fetching logic (e.g., `useLeads`, `useUpdateStatus`).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Status Transition Engine
+Status rules are enforced both visually and logically:
+- **`VALID_TRANSITIONS`** map in `src/types/lead.ts` defines the progression rules.
+- The `StatusChanger` component dynamically renders only valid next actions.
+- Leads in **CONVERTED** or **LOST** states are automatically locked, preventing further changes and providing clear visual affordance (lock icon).
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### State Management & Async Logic
+- **Server State:** We use TanStack Query to manage the `leads` cache. This includes automatic cache invalidation on successful mutations, ensuring the UI stays in sync with the server.
+- **Form State:** Managed locally with controlled inputs and touched-based validation to keep the code minimal and avoid over-engineering with heavy form libraries.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Offline & Concurrency Considerations
+- **Offline Support:** In a production app, I would implement `offline-first` via TanStack Query's persistence layer and a Service Worker for asset caching. Local changes would be queued and synced when connectivity returns.
+- **Concurrent Edits:** To handle two users editing the same lead, I would implement **Optimistic Locking** using a `version` or `updated_at` field. The server would reject edits if the version has changed, prompting the user to refresh or merge.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🤖 AI Usage Note
+I used Antigravity (AI assistant) to help scaffold the project and implement standard patterns. I manually reviewed every file to ensure it complied with the "no over-engineering" rule, specifically rejecting more complex state management libraries (like Zustand/Redux) in favor of plain React `useState`. I also manually defined the `VALID_TRANSITIONS` logic and the design system's CSS tokens.
+
+## 🎯 What's Next?
+Given more time, I would:
+- Add a **Kanban Board** view to visualize the pipeline.
+- Add comprehensive **Unit Tests** using Vitest and React Testing Library.
+- Implement **Dark/Light mode** switching.
