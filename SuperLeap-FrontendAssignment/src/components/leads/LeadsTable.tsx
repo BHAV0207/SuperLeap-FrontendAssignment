@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { Pencil, Trash2 } from 'lucide-react';
 import type { Lead, LeadStatus } from '../../types/lead';
 import StatusBadge from './StatusBadge';
+import StatusChanger from './StatusChanger';
 import { EmptyState } from '../ui/States';
 import './LeadsTable.css';
 import '../ui/ui.css';
@@ -53,7 +54,7 @@ export default function LeadsTable({ leads, isFiltered, onDelete }: Props) {
                 <a href={`mailto:${lead.email}`}>{lead.email}</a>
               </td>
               <td>
-                <StatusBadge status={lead.status as LeadStatus} />
+                <StatusChanger id={lead.id} currentStatus={lead.status as LeadStatus} />
               </td>
               <td className="leads-table__source">
                 {lead.source ? (SOURCE_LABELS[lead.source] ?? lead.source) : '—'}
