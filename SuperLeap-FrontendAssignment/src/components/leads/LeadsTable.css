@@ -12,7 +12,7 @@
 }
 
 .leads-table thead {
-  background: var(--color-surface-elevated);
+  background: var(--color-bg);
 }
 
 .leads-table th {
@@ -40,7 +40,7 @@
 }
 
 .leads-table__row:hover td {
-  background: var(--color-surface-elevated);
+  background: #f8fafc;
 }
 
 .leads-table__name {

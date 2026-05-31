@@ -4,62 +4,62 @@
 
 :root {
   /* — Colors — */
-  --color-bg: #0f1117;
-  --color-surface: #1a1d27;
-  --color-surface-elevated: #22263a;
-  --color-border: #2e3348;
-  --color-border-subtle: #252840;
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-border-subtle: #f1f5f9;
 
-  --color-text-primary: #e8eaf0;
-  --color-text-secondary: #8b92b0;
-  --color-text-muted: #555e80;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94a3b8;
 
-  --color-accent: #6c63ff;
-  --color-accent-hover: #7b74ff;
-  --color-accent-subtle: rgba(108, 99, 255, 0.12);
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  --color-accent-subtle: rgba(37, 99, 235, 0.08);
 
-  --color-danger: #ff5c6c;
-  --color-danger-hover: #ff4055;
-  --color-danger-subtle: rgba(255, 92, 108, 0.12);
+  --color-danger: #e11d48;
+  --color-danger-hover: #be123c;
+  --color-danger-subtle: rgba(225, 29, 72, 0.08);
 
-  --color-success: #2ecc71;
-  --color-success-subtle: rgba(46, 204, 113, 0.12);
+  --color-success: #10b981;
+  --color-success-subtle: rgba(16, 185, 129, 0.08);
 
-  /* — Status badge colors — */
-  --status-new-bg: rgba(108, 99, 255, 0.15);
-  --status-new-text: #9b94ff;
-  --status-new-border: rgba(108, 99, 255, 0.3);
+  /* — Status badge colors (Muted & Professional) — */
+  --status-new-bg: #eff6ff;
+  --status-new-text: #2563eb;
+  --status-new-border: #dbeafe;
 
-  --status-contacted-bg: rgba(59, 173, 227, 0.15);
-  --status-contacted-text: #5abee8;
-  --status-contacted-border: rgba(59, 173, 227, 0.3);
+  --status-contacted-bg: #f5f3ff;
+  --status-contacted-text: #7c3aed;
+  --status-contacted-border: #ede9fe;
 
-  --status-qualified-bg: rgba(255, 193, 7, 0.12);
-  --status-qualified-text: #f4c542;
-  --status-qualified-border: rgba(255, 193, 7, 0.3);
+  --status-qualified-bg: #fefce8;
+  --status-qualified-text: #ca8a04;
+  --status-qualified-border: #fef08a;
 
-  --status-converted-bg: rgba(46, 204, 113, 0.12);
-  --status-converted-text: #2ecc71;
-  --status-converted-border: rgba(46, 204, 113, 0.3);
+  --status-converted-bg: #ecfdf5;
+  --status-converted-text: #059669;
+  --status-converted-border: #d1fae5;
 
-  --status-lost-bg: rgba(255, 92, 108, 0.12);
-  --status-lost-text: #ff7c8a;
-  --status-lost-border: rgba(255, 92, 108, 0.3);
+  --status-lost-bg: #fef2f2;
+  --status-lost-text: #dc2626;
+  --status-lost-border: #fee2e2;
 
   /* — Typography — */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
   --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
+  --text-sm: 0.8125rem;
+  --text-base: 0.875rem;
+  --text-lg: 1rem;
+  --text-xl: 1.125rem;
+  --text-2xl: 1.25rem;
 
   --font-normal: 400;
   --font-medium: 500;
-  --font-semibold: 600;
+  --font-semibold: 620; /* Slightly thinner than 600 for Inter robustness */
   --font-bold: 700;
 
   /* — Spacing — */
@@ -75,14 +75,14 @@
 
   /* — Radius — */
   --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
   --radius-full: 9999px;
 
   /* — Shadows — */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.04), 0 4px 8px rgba(0, 0, 0, 0.02);
 
   /* — Transitions — */
   --transition-fast: 150ms ease;

@@ -14,29 +14,29 @@
 .status-badge--new {
   background: var(--status-new-bg);
   color: var(--status-new-text);
-  border-color: var(--status-new-border);
+  border: 1px solid var(--status-new-border);
 }
 
 .status-badge--contacted {
   background: var(--status-contacted-bg);
   color: var(--status-contacted-text);
-  border-color: var(--status-contacted-border);
+  border: 1px solid var(--status-contacted-border);
 }
 
 .status-badge--qualified {
   background: var(--status-qualified-bg);
   color: var(--status-qualified-text);
-  border-color: var(--status-qualified-border);
+  border: 1px solid var(--status-qualified-border);
 }
 
 .status-badge--converted {
   background: var(--status-converted-bg);
   color: var(--status-converted-text);
-  border-color: var(--status-converted-border);
+  border: 1px solid var(--status-converted-border);
 }
 
 .status-badge--lost {
   background: var(--status-lost-bg);
   color: var(--status-lost-text);
-  border-color: var(--status-lost-border);
+  border: 1px solid var(--status-lost-border);
 }

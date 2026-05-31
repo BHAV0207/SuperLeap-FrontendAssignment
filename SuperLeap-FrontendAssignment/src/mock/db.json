@@ -465,20 +465,20 @@
       "name": "Vera Reed",
       "email": "vera@proptech.com",
       "phone": "9000000044",
-      "status": "CONTACTED",
+      "status": "LOST",
       "source": "referral",
       "created_at": "2024-02-25T09:00:00Z",
-      "updated_at": "2024-02-26T10:00:00Z"
+      "updated_at": "2026-05-31T16:07:28.802Z"
     },
     {
       "id": "48",
       "name": "Will Cook",
       "email": "will@agritech.io",
       "phone": "",
-      "status": "QUALIFIED",
+      "status": "CONVERTED",
       "source": "campaign",
       "created_at": "2024-02-26T10:00:00Z",
-      "updated_at": "2024-02-28T11:00:00Z"
+      "updated_at": "2026-05-31T16:07:20.484Z"
     },
     {
       "id": "49",
@@ -489,16 +489,6 @@
       "source": "website",
       "created_at": "2024-02-27T11:00:00Z",
       "updated_at": "2024-02-27T11:00:00Z"
-    },
-    {
-      "id": "50",
-      "name": "Yusuf Bell",
-      "email": "yusuf@watertech.in",
-      "phone": "9000000047",
-      "status": "CONVERTED",
-      "source": "referral",
-      "created_at": "2024-02-28T12:00:00Z",
-      "updated_at": "2024-03-06T13:00:00Z"
     }
   ]
 }

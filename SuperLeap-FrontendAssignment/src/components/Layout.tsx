@@ -7,7 +7,6 @@ export default function Layout() {
       <header className="app-header">
         <div className="app-header-inner">
           <div className="app-logo">
-            <span className="app-logo-icon">⚡</span>
             <span className="app-logo-text">SuperLeap CRM</span>
           </div>
         </div>
