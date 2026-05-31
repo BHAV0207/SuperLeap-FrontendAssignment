@@ -1,0 +1,55 @@
+.status-filter {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.status-filter__chip {
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.status-filter__chip:hover {
+  border-color: var(--color-text-secondary);
+  color: var(--color-text-primary);
+}
+
+.status-filter__chip--active {
+  background: var(--color-accent-subtle);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* Per-status active colors */
+.status-filter__chip--new.status-filter__chip--active {
+  background: var(--status-new-bg);
+  border-color: var(--status-new-border);
+  color: var(--status-new-text);
+}
+.status-filter__chip--contacted.status-filter__chip--active {
+  background: var(--status-contacted-bg);
+  border-color: var(--status-contacted-border);
+  color: var(--status-contacted-text);
+}
+.status-filter__chip--qualified.status-filter__chip--active {
+  background: var(--status-qualified-bg);
+  border-color: var(--status-qualified-border);
+  color: var(--status-qualified-text);
+}
+.status-filter__chip--converted.status-filter__chip--active {
+  background: var(--status-converted-bg);
+  border-color: var(--status-converted-border);
+  color: var(--status-converted-text);
+}
+.status-filter__chip--lost.status-filter__chip--active {
+  background: var(--status-lost-bg);
+  border-color: var(--status-lost-border);
+  color: var(--status-lost-text);
+}
