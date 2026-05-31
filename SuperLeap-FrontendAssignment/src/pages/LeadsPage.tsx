@@ -3,11 +3,13 @@ import { Plus } from 'lucide-react';
 import type { Lead, LeadStatus } from '../types/lead';
 import { useLeads } from '../hooks/useLeads';
 import { useCreateLead } from '../hooks/useCreateLead';
+import { useDeleteLead } from '../hooks/useDeleteLead';
 import LeadsTable from '../components/leads/LeadsTable';
 import StatusFilter from '../components/leads/StatusFilter';
 import SearchBox from '../components/leads/SearchBox';
 import Modal from '../components/ui/Modal';
 import LeadForm from '../components/leads/LeadForm';
+import DeleteDialog from '../components/leads/DeleteDialog';
 import { LoadingSpinner, ErrorMessage } from '../components/ui/States';
 import '../components/ui/ui.css';
 import './LeadsPage.css';
@@ -15,10 +17,13 @@ import './LeadsPage.css';
 export default function LeadsPage() {
   const { data: leads, isLoading, isError, error } = useLeads();
   const { mutate: createLead, isPending: isCreating, error: createError } = useCreateLead();
+  const { mutate: deleteLead, isPending: isDeleting } = useDeleteLead();
   
   const [statusFilter, setStatusFilter] = useState<LeadStatus | 'ALL'>('ALL');
   const [search, setSearch] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  const [leadToDelete, setLeadToDelete] = useState<Lead | null>(null);
 
   const filtered = useMemo(() => {
     if (!leads) return [];
@@ -35,17 +40,20 @@ export default function LeadsPage() {
 
   const isFiltered = statusFilter !== 'ALL' || search.trim() !== '';
 
-  function handleDelete(lead: Lead) {
-    // Wired in Part 4
-    console.log('delete', lead.id);
-  }
-
   function handleCreate(data: any) {
     createLead(data, {
       onSuccess: () => {
         setIsModalOpen(false);
       },
     });
+  }
+
+  function handleDeleteConfirm() {
+    if (leadToDelete) {
+      deleteLead(leadToDelete.id, {
+        onSettled: () => setLeadToDelete(null),
+      });
+    }
   }
 
   return (
@@ -84,7 +92,7 @@ export default function LeadsPage() {
         <LeadsTable
           leads={filtered}
           isFiltered={isFiltered}
-          onDelete={handleDelete}
+          onDelete={setLeadToDelete}
         />
       )}
 
@@ -101,6 +109,14 @@ export default function LeadsPage() {
           submitLabel="Create Lead"
         />
       </Modal>
+
+      <DeleteDialog
+        isOpen={!!leadToDelete}
+        lead={leadToDelete}
+        onClose={() => setLeadToDelete(null)}
+        onConfirm={handleDeleteConfirm}
+        isPending={isDeleting}
+      />
     </div>
   );
 }
